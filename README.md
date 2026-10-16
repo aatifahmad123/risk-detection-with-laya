@@ -1,5 +1,7 @@
 # Laya Banking Fraud Risk Engine
 
+![Demo](demo-image.png)
+
 Local prototype for using Laya as a structured decision layer over
 banking customer-agent call transcripts. Minimal HTML/CSS frontend on a
 small standard-library Python server — no web frameworks, no build step.
