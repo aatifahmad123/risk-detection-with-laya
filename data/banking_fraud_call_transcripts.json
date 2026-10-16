@@ -1,0 +1,80 @@
+[
+  {
+    "id": "call_01",
+    "title": "01 — LEGITIMATE CARD ISSUE",
+    "transcript": "Agent: Good morning, thank you for calling customer support. How may I help you?\n\nCustomer: Hi, my debit card isn't working. I tried using it at a store twice and both transactions were declined.\n\nAgent: I'm sorry about that. Have you received any notification about your card being blocked?\n\nCustomer: No, nothing. It was working yesterday.\n\nAgent: Let me check the status of your card. Could you confirm the last four digits of the card?\n\nCustomer: 4821.\n\nAgent: Thank you. I can see the card is active. There was a temporary decline because of a merchant-side issue. Could you try the transaction again after a few minutes?\n\nCustomer: Sure, I'll try that.\n\nAgent: Great. Is there anything else I can help you with?\n\nCustomer: No, that's all. Thanks.",
+    "expected_signals": {
+      "OTP": "NO",
+      "Unauthorized transaction": "NO",
+      "Impersonation": "NO",
+      "Urgency": "LOW",
+      "Escalation": "NO"
+    }
+  },
+  {
+    "id": "call_02",
+    "title": "02 — SUSPICIOUS KYC MESSAGE",
+    "transcript": "Agent: Thank you for calling the bank. How can I assist you today?\n\nCustomer: I got a message saying my account will be blocked if I don't complete KYC today.\n\nAgent: Can you tell me what the message asked you to do?\n\nCustomer: It gave me a link and told me to update my PAN and Aadhaar details.\n\nAgent: Did you click the link?\n\nCustomer: I opened it, but I didn't enter anything.\n\nAgent: Did the page ask you for your password, PIN, or OTP?\n\nCustomer: It asked for my card number and expiry date, but I closed it.\n\nAgent: You did the right thing by not entering those details. Please don't use that link. I'll report the message for investigation.\n\nCustomer: Okay. I was worried because it said my account would be blocked today.\n\nAgent: I understand. We'll help you verify whether there are any issues with your account.",
+    "expected_signals": {
+      "Suspicious link": "YES",
+      "Impersonation": "POSSIBLE",
+      "OTP": "NO",
+      "Credential request": "YES",
+      "Urgency": "MEDIUM",
+      "Escalation": "YES"
+    }
+  },
+  {
+    "id": "call_03",
+    "title": "03 — OTP SOCIAL ENGINEERING",
+    "transcript": "Agent: How may I help you today?\n\nCustomer: I think someone tried to access my account.\n\nAgent: What happened?\n\nCustomer: I received a call from someone claiming to be from the bank. They said there was a suspicious transaction on my account.\n\nAgent: Did they ask you for any information?\n\nCustomer: They said they needed to verify my account and asked me for an OTP.\n\nAgent: Did you share the OTP with them?\n\nCustomer: Yes. They sounded very convincing, and they said my account would be frozen if I didn't cooperate.\n\nAgent: Did you notice any transaction afterward that you don't recognize?\n\nCustomer: Yes. About ₹18,000 was debited from my account.\n\nAgent: I understand. I'll escalate this immediately and help secure the account.\n\nCustomer: Please do. I don't recognize that transaction.",
+    "expected_signals": {
+      "Impersonation": "YES",
+      "OTP shared": "YES",
+      "Unauthorized transaction": "YES",
+      "Threat/urgency": "YES",
+      "Social engineering": "YES",
+      "Risk": "HIGH/CRITICAL",
+      "Escalation": "YES"
+    }
+  },
+  {
+    "id": "call_04",
+    "title": "04 — REMOTE ACCESS SCAM",
+    "transcript": "Agent: Thank you for contacting customer support. What happened?\n\nCustomer: Someone called me saying they were from the bank's fraud department.\n\nAgent: What did they tell you?\n\nCustomer: They said my account had been compromised and that they needed to help me secure it.\n\nAgent: Did they ask you to install anything?\n\nCustomer: Yes. They told me to install an app so they could remotely check my phone.\n\nAgent: Did you install the application?\n\nCustomer: Yes.\n\nAgent: Were you asked to enter any banking information?\n\nCustomer: They told me to open my banking app while they were connected.\n\nAgent: Did you notice any transaction afterward?\n\nCustomer: Yes. I saw a transfer of ₹75,000 that I didn't make.\n\nAgent: Please do not interact with that person again. I'm escalating this as a suspected fraud case immediately.",
+    "expected_signals": {
+      "Remote access": "YES",
+      "Impersonation": "YES",
+      "Unauthorized transaction": "YES",
+      "Social engineering": "YES",
+      "Risk": "CRITICAL",
+      "Escalation": "YES"
+    }
+  },
+  {
+    "id": "call_05",
+    "title": "05 — FALSE FRAUD ALARM",
+    "transcript": "Agent: How can I help you today?\n\nCustomer: I saw a transaction on my account that I didn't recognize.\n\nAgent: I can help you check that. What is the transaction amount?\n\nCustomer: ₹12,500.\n\nAgent: Do you recognize the merchant name listed on the statement?\n\nCustomer: No, that's why I'm calling.\n\nAgent: The transaction appears to be from an online travel merchant. Did you recently book a hotel?\n\nCustomer: Wait, yes. I booked a hotel for my trip last week.\n\nAgent: That appears to be the same merchant. Sometimes the name shown on the statement is different from the name displayed on the booking website.\n\nCustomer: Oh, you're right. I checked my email and the amount matches.\n\nAgent: Great. In that case, the transaction appears to be legitimate.\n\nCustomer: Yes, that's my booking. Sorry about that.\n\nAgent: No problem. It's always good to check if you're unsure.",
+    "expected_signals": {
+      "Initially suspicious": "YES",
+      "Unauthorized transaction": "NO",
+      "Fraud indicators": "LOW",
+      "Escalation": "NO"
+    }
+  },
+  {
+    "id": "call_06",
+    "title": "06 — ACCOUNT TAKEOVER ATTEMPT",
+    "transcript": "Agent: Thank you for calling customer support. How may I assist you?\n\nCustomer: I need help immediately. I got a call from someone who knew my name and the last four digits of my account.\n\nAgent: What did they tell you?\n\nCustomer: They said there was a suspicious login from another city and that they were from the bank's security team.\n\nAgent: Did they ask you to perform any action?\n\nCustomer: They told me to confirm a verification code that would come to my phone.\n\nAgent: Did you give them the code?\n\nCustomer: I almost did, but I remembered that the bank normally doesn't ask for OTPs over the phone.\n\nAgent: That's correct. Did anything else happen?\n\nCustomer: They became aggressive and said that if I didn't cooperate within five minutes, my account would be permanently frozen.\n\nAgent: Did you click any links or install any applications?\n\nCustomer: No.\n\nAgent: Good. Please don't provide them with any further information. I'll flag this interaction for investigation and check whether there have been any unauthorized login attempts.\n\nCustomer: Okay. I just wanted to make sure my account is safe.",
+    "expected_signals": {
+      "Impersonation": "YES",
+      "OTP requested": "YES",
+      "OTP shared": "NO",
+      "Threat/urgency": "YES",
+      "Social engineering": "YES",
+      "Unauthorized transaction": "UNKNOWN/NO EVIDENCE",
+      "Risk": "HIGH",
+      "Escalation": "YES"
+    }
+  }
+]

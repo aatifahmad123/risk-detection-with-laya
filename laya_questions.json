@@ -1,0 +1,40 @@
+{
+  "fraud_category": {
+    "type": "choice",
+    "instructions": "What is the most appropriate category for the risk pattern in this banking call?",
+    "criteria": {
+      "legitimate": "No meaningful fraud indicator; the customer's issue appears legitimate.",
+      "phishing": "A suspicious message, link, or request attempts to collect banking information.",
+      "social_engineering": "A person manipulates the customer into revealing information or performing a risky action.",
+      "account_takeover": "There are indicators that someone is attempting to gain or has gained unauthorized access to the customer's account.",
+      "unauthorized_transaction": "The conversation indicates a transaction the customer says they did not authorize.",
+      "remote_access_scam": "The customer was asked to install remote-access software or allow remote control of a device."
+    }
+  },
+  "risk_level": {
+    "type": "score",
+    "instructions": "How serious is the fraud risk described in this call?",
+    "criteria": [
+      "Low",
+      "Medium",
+      "High",
+      "Critical"
+    ]
+  },
+  "otp_involved": {
+    "type": "noul",
+    "instructions": "Was an OTP or verification code requested or shared in a suspicious context?"
+  },
+  "unauthorized_transaction": {
+    "type": "noul",
+    "instructions": "Does the customer report a transaction they did not authorize?"
+  },
+  "social_engineering": {
+    "type": "noul",
+    "instructions": "Does the conversation contain social-engineering or manipulation tactics?"
+  },
+  "escalation_required": {
+    "type": "noul",
+    "instructions": "Should this case be escalated for fraud or security review?"
+  }
+}

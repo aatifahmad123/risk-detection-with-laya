@@ -1,0 +1,73 @@
+{
+  "model": "laya-rl-agent",
+  "answers": {
+    "department": {
+      "type": "choice",
+      "choice": "billing",
+      "probabilities": {
+        "billing": 0.9722,
+        "technical": 0.0113,
+        "sales": 0.0165
+      },
+      "confidence": 0.8675,
+      "answer_confidence": 0.9722,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "urgency": {
+      "type": "score",
+      "score": 1.195,
+      "legend": {
+        "0": "Not urgent",
+        "1": "Needs attention soon",
+        "2": "Critical"
+      },
+      "probabilities": {
+        "0": 0.1284,
+        "1": 0.5483,
+        "2": 0.3234
+      },
+      "confidence": 0.1279,
+      "answer_confidence": 0.5483,
+      "action": {
+        "act_probability": 1.0
+      }
+    },
+    "refund_requested": {
+      "type": "noul",
+      "noul": 0.8796,
+      "confidence": 0.8796,
+      "answer_confidence": 0.8796,
+      "action": {
+        "act_probability": 1.0
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 194,
+    "output_tokens": 0,
+    "state_tokens": 29,
+    "state_tokens_dropped": 0,
+    "truncated": false,
+    "truncated_questions": []
+  },
+  "routing": {
+    "model": "english",
+    "repo": "convaiinnovations/laya",
+    "reason": "English Latin text",
+    "detection": {
+      "script": "latin",
+      "script_profile": {
+        "latin": 1.0
+      },
+      "language": "en",
+      "is_english": true,
+      "language_undecided": false,
+      "diacritic_rate": 0.0,
+      "non_latin_fraction": 0.0,
+      "mixed_segment": null
+    },
+    "workflow": null
+  }
+}
